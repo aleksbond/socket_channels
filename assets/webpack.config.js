@@ -19,6 +19,7 @@ module.exports = (env, options) => ({
     filename: 'app.js',
     path: path.resolve(__dirname, '../priv/static/js')
   },
+  stats: { colors: true },
   module: {
     rules: [
       {
