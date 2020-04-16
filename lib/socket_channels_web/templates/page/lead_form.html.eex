@@ -1,7 +1,7 @@
 <h1>Please fill out the form</h1>
 
-<section>
-  <%= form_for @changeset, "#", fn f -> %>
+<section id="form-container">
+  <%= form_for @changeset, Routes.page_path(@conn, :lead_form_create), [id: "lead-form"], fn f -> %>
     <label>
       First Name: <%= text_input f, :first_name %>
       <%= error_tag(f, :first_name) %>

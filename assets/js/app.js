@@ -14,4 +14,12 @@ import "phoenix_html"
 // Import local files
 //
 // Local files can be imported directly using relative paths, for example:
-// import socket from "./socket"
+import socket from "./socket"
+import leadForm from "./leadForm"
+
+const channel = socket.channel("form:lead", {})
+channel.join()
+  .receive("ok", resp => { console.log("Joined form:lead successfully", resp) })
+  .receive("error", resp => { console.log("Unable to join form:lead", resp) })
+
+leadForm(channel)
